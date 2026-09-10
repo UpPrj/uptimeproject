@@ -25,14 +25,13 @@ In scope:
 |---|---|
 | `uptimeproject.org` | Static site |
 | `api.uptimeproject.org` | Public read-only API |
-| `ingest.uptimeproject.org` | Authenticated probe ingest endpoint |
 
 Out of scope:
 
 - The services being measured. A finding against AWS, Cloudflare or any other provider on the
   leaderboard belongs to that provider's disclosure process, not this one.
-- Anything on `grafana.uptimeproject.org`, which is not routable from the public internet.
-- Findings that require access to a probe host or the core box.
+- Any host other than the two above. The measurement and management infrastructure is not a public
+  service, and findings that need access to it are not in scope either.
 - Missing hardening headers, TLS configuration preferences and cookie flags with no demonstrated
   impact. Send them anyway if you like, but they are handled as ordinary issues.
 - Volumetric denial of service, automated scanner output with no verified finding, and social

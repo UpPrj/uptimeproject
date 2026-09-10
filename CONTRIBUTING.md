@@ -70,8 +70,11 @@ One maintainer, evenings and weekends, occasionally a week with nothing. Rough t
 
 An issue with no response after two weeks has been missed rather than ignored. Bump it.
 
-Issues closed as `wont-fix` get a reason. Issues sitting on `needs-info` for 30 days close
-automatically and reopen the moment the information arrives.
+Issues closed as `wont-fix` get a reason.
+
+An issue on `needs-info` is waiting on you, not on the maintainer. After 30 quiet days it is marked
+stale and closes 7 days later. A comment clears the label at any point before that, and a close is
+not a rejection: reopen it when you have the details, or say so and it gets reopened.
 
 ## Conduct
 

@@ -1,0 +1,53 @@
+name: stale
+
+# CONTRIBUTING.md tells a reporter what happens to an issue that stalls on
+# `needs-info`. This workflow is what makes that true rather than aspirational.
+#
+# The scope is deliberately narrow. `only-issue-labels: needs-info` means an
+# issue carrying any other label is never touched, so a real bug that nobody
+# has got to yet is not closed for being old. Age is not the signal here;
+# waiting on the reporter is.
+#
+# There is no code in this repository and no pull requests to stale, so the PR
+# side is switched off with -1 rather than left on its defaults.
+
+on:
+  schedule:
+    # Daily, deliberately off the hour: GitHub queues scheduled runs and the
+    # top of the hour is the worst place to sit in that queue.
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: stale
+  cancel-in-progress: false
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Mark and close issues waiting on their reporter
+        uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          only-issue-labels: needs-info
+          days-before-issue-stale: 30
+          days-before-issue-close: 7
+          stale-issue-label: stale
+          stale-issue-message: >-
+            This has been waiting 30 days for the information it needs, so it is
+            marked stale and will close in 7 days. Adding a comment clears the
+            label and keeps it open. Nothing about the report is rejected.
+          close-issue-message: >-
+            Closing after 37 days with the requested information outstanding.
+            This is not a judgement on the report. Reopen it whenever you have
+            the details, or comment and say so and it will be reopened.
+          remove-stale-when-updated: true
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          operations-per-run: 100

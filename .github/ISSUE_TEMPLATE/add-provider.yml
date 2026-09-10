@@ -1,0 +1,97 @@
+name: Provider request
+description: Ask for a service to be added to the leaderboard
+title: '[Provider] '
+labels: [provider-request]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A request is actionable when it names the **exact endpoint** to check. Naming only the
+        company leaves the work undone.
+
+        Each addition is a permanent cost in probe capacity and storage, so requests are batched and
+        not all of them ship. [CONTRIBUTING.md](https://github.com/UpPrj/uptimeproject/blob/main/CONTRIBUTING.md#provider-requests)
+        has the admission criteria.
+
+  - type: input
+    id: provider
+    attributes:
+      label: Provider and product
+      description: The specific product, not just the company. Regional products need the region.
+      placeholder: Vercel, Edge Network
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - IaaS / hosting
+        - AI / LLM
+        - Object storage
+        - CDN
+        - Dev infra
+        - DNS
+        - Email transactional
+        - Payments
+        - None of these
+    validations:
+      required: true
+
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint to check
+      description: Must answer without credentials. A health or status endpoint is ideal.
+      placeholder: https://api.vercel.com/v2/user
+    validations:
+      required: true
+
+  - type: dropdown
+    id: check_type
+    attributes:
+      label: Check type
+      options:
+        - HTTP
+        - DNS
+        - TCP
+        - TLS
+        - Object storage
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: expected
+    attributes:
+      label: Expected status code
+      description: What the endpoint returns when healthy and unauthenticated. A steady 401 or 403 is fine.
+      placeholder: '403'
+
+  - type: input
+    id: status_page
+    attributes:
+      label: Provider status page
+      description: Used for the Tier-2 comparison, if one exists.
+      placeholder: https://www.vercel-status.com
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs on the leaderboard
+      description: Who depends on it, and what breaks for them when it goes down.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: The endpoint needs no account, no paid tier and no signed request
+          required: true
+        - label: Nothing in the provider's terms of service prohibits automated requests at these cadences
+          required: true
+        - label: I agree to follow this project's Code of Conduct
+          required: true

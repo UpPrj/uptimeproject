@@ -1,0 +1,74 @@
+name: Bug report
+description: Something on the site or the API is broken
+title: '[Bug] '
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a figure you believe is wrong, use the **Data dispute** template instead. This one is
+        for defects: a page that fails to render, an endpoint that errors, a link that leads nowhere.
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where
+      options:
+        - Website (uptimeproject.org)
+        - Public API (api.uptimeproject.org)
+        - API documentation or OpenAPI spec
+        - RSS feed
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: URL or endpoint
+      description: The exact address, including any query string.
+      placeholder: https://uptimeproject.org/service/aws-ec2-us-east-1/
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened
+      description: Paste the error text or response body if there is one. Screenshots welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Only needed if it takes more than opening the URL.
+      placeholder: |
+        1. Open the leaderboard
+        2. Switch the period to 90 days
+        3. Sort by availability
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and OS
+      description: Site bugs only. Include the version.
+      placeholder: Firefox 148 on macOS 26.6
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -1,0 +1,54 @@
+name: Feature request
+description: Suggest a change to the site, the API or the published data
+title: '[Feature] '
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open-ended ideas are better in [Discussions](https://github.com/UpPrj/uptimeproject/discussions).
+        Use this template when you know what you want and can say what it would replace.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Website
+        - Public API
+        - Published data or export formats
+        - Documentation
+        - Somewhere else
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you cannot do today
+      description: The problem, not the solution. What were you trying to find out when you hit it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried
+      description: Existing pages, endpoints or query parameters that came close and why they fell short.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and discussions for the same request
+          required: true
+        - label: I agree to follow this project's Code of Conduct
+          required: true

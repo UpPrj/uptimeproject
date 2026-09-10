@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question, or an argument about methodology
+    url: https://github.com/UpPrj/uptimeproject/discussions
+    about: Not everything is a bug. Discussions is the place to ask how something is measured.
+  - name: Security vulnerability
+    url: https://github.com/UpPrj/uptimeproject/security/advisories/new
+    about: Report privately through a security advisory. Never in a public issue.
+  - name: Methodology
+    url: https://uptimeproject.org/methodology/
+    about: How status, availability and unknown minutes are computed. Read before disputing a figure.

@@ -1,0 +1,88 @@
+name: Data dispute
+description: A status or availability figure does not match what you observed
+title: '[Data] '
+labels: [data-dispute, measurement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The most useful report this project gets. It needs a **UTC time window** and **evidence**,
+        because the claim is checked by querying the database over exactly that window.
+
+        Before filing: a provider status page reporting green while this site reports an outage is
+        not automatically a defect. The two measure different things, which
+        [the methodology](https://uptimeproject.org/methodology/) explains.
+
+  - type: input
+    id: service
+    attributes:
+      label: Service
+      description: As it appears on the site, with the URL of its page if you have it.
+      placeholder: AWS EC2 (eu-west-1), https://uptimeproject.org/service/aws-ec2-eu-west-1/
+    validations:
+      required: true
+
+  - type: input
+    id: window_start
+    attributes:
+      label: Window start (UTC)
+      placeholder: 2026-09-08 14:20
+    validations:
+      required: true
+
+  - type: input
+    id: window_end
+    attributes:
+      label: Window end (UTC)
+      placeholder: 2026-09-08 15:05
+    validations:
+      required: true
+
+  - type: textarea
+    id: ours
+    attributes:
+      label: What this site reports
+      description: The status, availability percentage or chart reading you are looking at.
+    validations:
+      required: true
+
+  - type: textarea
+    id: yours
+    attributes:
+      label: What you believe is correct
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        Any of: a provider status page entry or postmortem URL, your own monitoring export,
+        timestamped `curl -v` or `dig` output, a support ticket reference.
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the provider
+      description: Recorded for transparency. It does not change how the dispute is handled.
+      options:
+        - No relationship
+        - Customer
+        - I work for the provider
+        - Prefer not to say
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I read how `unknown` minutes are excluded from the availability denominator
+          required: true
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -39,7 +39,7 @@ Probe locations, service and check counts, status thresholds and the reasoning b
   redistribute it, build on it, with attribution and a link back.
 - No authentication, no key, no rate-limit tier. Responses are edge-cached for 5 minutes.
 - Clients on datacenter networks may get a Cloudflare bot challenge from the API. AI agents on cloud
-  hosts can use the read-only MCP server at `https://uptimeproject-mcp.webnox.workers.dev/mcp`
+  hosts can use the read-only MCP server at `https://mcp.uptimeproject.com/mcp`
   (60 requests per minute per IP); desktop agents can use `https://mcp.uptimeproject.org/mcp`.
 
 ## What this repo is for

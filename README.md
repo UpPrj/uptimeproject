@@ -40,6 +40,12 @@ Probe locations, service and check counts, status thresholds and the reasoning b
 - No authentication, no key, no rate-limit tier. Responses are edge-cached for 5 minutes.
 - AI agents can use the read-only MCP server at `https://mcp.uptimeproject.org/mcp` (60 requests
   per minute per IP).
+- Every service has an embeddable availability badge at
+  `https://api.uptimeproject.org/v1/services/{id}/badge.svg`; its page on the site has the Markdown
+  snippet.
+- New posts and methodology changes: [newsletter](https://uptimeproject.org/subscribe/) or
+  [RSS](https://uptimeproject.org/rss.xml). Incidents: Atom at
+  [`/v1/incidents.atom`](https://api.uptimeproject.org/v1/incidents.atom).
 
 ## What this repo is for
 
